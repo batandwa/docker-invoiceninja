@@ -11,6 +11,11 @@ fi
 
 echo "DB_USERNAME=$DB_USERNAME" >> .env
 echo "DB_PASSWORD=$DB_PASSWORD" >> .env
+echo "APP_URL=$APP_URL" >> .env
+
+if [ ! -d /var/www/app/docker-backup-storage ]; then
+  mkdir -p /var/www/app/docker-backup-storage
+fi
 
 if [ ! -d /var/www/app/storage ]; then
 	cp -Rp /var/www/app/docker-backup-storage /var/www/app/storage
