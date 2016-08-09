@@ -9,10 +9,19 @@ if [ "$DB_USERNAME" = 'root' ]; then
 	: ${DB_PASSWORD:=$MYSQL_ENV_MYSQL_ROOT_PASSWORD}
 fi
 
+# Copy environment variables to env file. First echo creates new file.
 echo "DB_USERNAME=$DB_USERNAME" > .env
 echo "DB_PASSWORD=$DB_PASSWORD" >> .env
 echo "APP_URL=$APP_URL" >> .env
 echo "REQUIRE_HTTPS=$REQUIRE_HTTPS" >> .env
+echo "MAIL_DRIVER=$MAIL_DRIVER" >> .env
+echo "MAIL_PORT=$MAIL_PORT" >> .env
+echo "MAIL_ENCRYPTION=$MAIL_ENCRYPTION" >> .env
+echo "MAIL_HOST=$MAIL_HOST" >> .env
+echo "MAIL_USERNAME=$MAIL_USERNAME" >> .env
+echo "MAIL_FROM_ADDRESS=$MAIL_FROM_ADDRESS" >> .env
+echo "MAIL_FROM_NAME=$MAIL_FROM_NAME" >> .env
+echo "MAIL_PASSWORD=$MAIL_PASSWORD" >> .env
 
 if [ ! -d /var/www/app/docker-backup-storage ]; then
   mkdir -p /var/www/app/docker-backup-storage
