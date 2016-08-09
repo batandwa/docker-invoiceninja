@@ -9,9 +9,10 @@ if [ "$DB_USERNAME" = 'root' ]; then
 	: ${DB_PASSWORD:=$MYSQL_ENV_MYSQL_ROOT_PASSWORD}
 fi
 
-echo "DB_USERNAME=$DB_USERNAME" >> .env
+echo "DB_USERNAME=$DB_USERNAME" > .env
 echo "DB_PASSWORD=$DB_PASSWORD" >> .env
 echo "APP_URL=$APP_URL" >> .env
+echo "REQUIRE_HTTPS=$REQUIRE_HTTPS" >> .env
 
 if [ ! -d /var/www/app/docker-backup-storage ]; then
   mkdir -p /var/www/app/docker-backup-storage
