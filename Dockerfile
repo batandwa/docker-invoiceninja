@@ -57,6 +57,7 @@ WORKDIR /var/www/app
 EXPOSE 80
 
 COPY app-entrypoint.sh /entrypoint.sh
+COPY public_htaccess /var/www/app/public/.htaccess
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
