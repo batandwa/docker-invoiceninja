@@ -1,0 +1,28 @@
+db:
+    image: mysql:5.5
+    environment:
+        MYSQL_DATABASE: invninj
+        MYSQL_ROOT_PASSWORD: admin
+  
+app:
+    build: .
+    #image: invoiceninja/invoiceninja:2.5.1.2
+    environment:
+        DB_USERNAME: root
+        DB_DATABASE: invninj 
+        DB_PASSWORD: admin
+  
+web:
+    image: nginx
+    ports:
+        - 80
+  
+mail:
+    image: openseamap/smtp-docker:latest
+
+db_viewer:
+    image: phpmyadmin/phpmyadmin:4.6.2-3
+    environment:
+        PMA_HOSTS: db
+        PMA_USER: root
+        PMA_PASSWORD: admin
